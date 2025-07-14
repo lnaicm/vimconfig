@@ -9,4 +9,4 @@ vim.cmd('source ' .. vimrc_path)
 
 require('lsp_config')
 require('nvimtree_config')
-
+require('nvim-cmp_config')

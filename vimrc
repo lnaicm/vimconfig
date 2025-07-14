@@ -15,6 +15,14 @@ call plug#begin()
     Plug 'mechatroner/rainbow_csv'
     Plug 'nvim-tree/nvim-web-devicons'
 
+    " nvim-cmp plugin list begin
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
+    " nvim-cmp plugin list end
 call plug#end()
 " Reload the file or restart Vim, then you can,
 " :PlugInstall to install the plugins
