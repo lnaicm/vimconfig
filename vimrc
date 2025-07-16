@@ -22,6 +22,9 @@ call plug#begin()
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
+    " For vsnip users.
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
     " nvim-cmp plugin list end
 call plug#end()
 " Reload the file or restart Vim, then you can,
@@ -41,6 +44,12 @@ syntax on
 
 " Highlight cursor line underneath the cursor vertically.
 "set cursorcolumn
+
+" Use tabs, not spaces
+set noexpandtab
+
+" Tab feels like 4 spaces when editing
+set softtabstop=4
 
 " Set shift width to 4 spaces.
 set shiftwidth=4

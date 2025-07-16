@@ -81,3 +81,19 @@ lspconfig.clangd.setup({
     { offsetEncoding = { "utf-8" } }
   )
 })
+
+-- cmake language server config
+lspconfig.cmake.setup({
+  cmd = {"cmake-language-server"},
+  filetypes = {"cmake"},
+  init_options = {
+    buildDirectory = "build"
+  },
+  root_dir = lspconfig.util.root_pattern(
+    'CMakePresets.json',
+    'CTestConfig.cmake',
+    '.git',
+    'build',
+    'cmake'
+  ),
+})
