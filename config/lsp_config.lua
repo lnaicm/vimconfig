@@ -1,38 +1,12 @@
 vim.lsp.set_log_level("debug")
 local lspconfig = require('lspconfig')
 
--- vimls configuration
-lspconfig.vimls.setup({
-  cmd = { "vim-language-server", "--stdio" },
-  filetypes = { "vim" },
-  root_dir = lspconfig.util.root_pattern(".git", "autoload", "plugin"),
-  settings = {
-    vimls = {
-      isNeovim = true,
-      iskeyword = "@,48-57,_,192-255,-#",
-      vimruntime = "",
-      runtimepath = "",
-      diagnostic = { enable = true },
-      indexes = {
-        runtimepath = true,
-        gap = 100,
-        count = 3,
-        projectRootPatterns = { ".git", "autoload", "plugin" }
-      },
-      suggest = {
-        fromVimruntime = true,
-        fromRuntimepath = false
-      }
-    }
-  }
-})
-
 -- lua language server config
 lspconfig.lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
-      if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+      if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
         return
       end
     end
@@ -62,6 +36,32 @@ lspconfig.lua_ls.setup {
   }
 }
 
+-- vimls configuration
+lspconfig.vimls.setup({
+  cmd = { "vim-language-server", "--stdio" },
+  filetypes = { "vim" },
+  root_dir = lspconfig.util.root_pattern(".git", "autoload", "plugin"),
+  settings = {
+    vimls = {
+      isNeovim = true,
+      iskeyword = "@,48-57,_,192-255,-#",
+      vimruntime = "",
+      runtimepath = "",
+      diagnostic = { enable = true },
+      indexes = {
+        runtimepath = true,
+        gap = 100,
+        count = 3,
+        projectRootPatterns = { ".git", "autoload", "plugin" }
+      },
+      suggest = {
+        fromVimruntime = true,
+        fromRuntimepath = false
+      }
+    }
+  }
+})
+
 -- Snippet to enable the clangd language server:
 lspconfig.clangd.setup({
   cmd = { "clangd", "--background-index", "--clang-tidy" },
@@ -84,8 +84,8 @@ lspconfig.clangd.setup({
 
 -- cmake language server config
 lspconfig.cmake.setup({
-  cmd = {"cmake-language-server"},
-  filetypes = {"cmake"},
+  cmd = { "cmake-language-server" },
+  filetypes = { "cmake" },
   init_options = {
     buildDirectory = "build"
   },
@@ -96,4 +96,40 @@ lspconfig.cmake.setup({
     'build',
     'cmake'
   ),
+})
+
+-- js/ts language server config
+lspconfig.ts_ls.setup({
+  cmd = { "typescrip-language-server", "--sdio" },
+  filetypes = { "javascript", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  init_options = {
+    hostInfo = "neovim"
+  },
+  root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json", "package.json", ".git"),
+})
+
+-- pylsp config
+lspconfig.pylsp.setup({
+  cmd = { "pyslsp" },
+  filetypes = { "python" },
+  root_dir = lspconfig.util.root_pattern(
+    'pyproject.toml',
+    'setup.py',
+    'setup.cfg',
+    'requirements.txt',
+    'Pipfile',
+    '.git'
+  ),
+  settings = {
+    pylsp = {
+      plugins = {
+        -- pycodestyle = {
+        --   ignore = { 'W391' },
+        --   maxLineLength = 100
+        -- },
+        -- autopep8 = { enabled = false },
+        -- black = { enabled = true },
+      }
+    }
+  }
 })

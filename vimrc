@@ -6,7 +6,6 @@ filetype off
 
 " TODO: Load plugins here (pathogen or vundle, we recommend vundle)
 call plug#begin()
-
 " List your plugins here
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-tree/nvim-tree.lua'
@@ -26,6 +25,9 @@ call plug#begin()
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
     " nvim-cmp plugin list end
+
+    " Treesitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
 " Reload the file or restart Vim, then you can,
 " :PlugInstall to install the plugins
@@ -44,9 +46,6 @@ syntax on
 
 " Highlight cursor line underneath the cursor vertically.
 "set cursorcolumn
-
-" Use tabs, not spaces
-set noexpandtab
 
 " Tab feels like 4 spaces when editing
 set softtabstop=4
@@ -79,9 +78,12 @@ set wrap
 set smartindent
 
 "Makes sure that spaces are used for indenting lines, even when you press the "Tab" key
-set expandtab
+"set expandtab
 
-"This will insert 2 spaces for a line indent
+" Use tabs, not spaces
+set noexpandtab
+
+"This will insert 4 spaces for a line indent
 set tabstop=4
 
 "Manages the indentation when you use the ">>" or "<<" operators to add or remove indentation to an already existing line/block of code
