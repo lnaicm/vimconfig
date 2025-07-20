@@ -28,6 +28,13 @@ call plug#begin()
 
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+    " Telescope plugin list begin
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+    " or                                , { 'branch': '0.1.x' }
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
+    " Telescope plugin list end
 call plug#end()
 " Reload the file or restart Vim, then you can,
 " :PlugInstall to install the plugins

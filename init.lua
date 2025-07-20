@@ -7,9 +7,11 @@ package.path = package.path .. vimconfig_path
 
 vim.cmd('source ' .. vimrc_path)
 
+vim.g.mapleader = " "
 vim.g.markdown_fenced_languages = { "vim", "help" }
 
 require('lsp_config')
 require('nvim-tree_config')
 require('nvim-cmp_config')
 require('treesitter_config')
+require('telescope_config')
