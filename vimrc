@@ -122,8 +122,11 @@ set showcmd
 " Set color scheme
 colorscheme tokyonight
 
-let g:markdown_fenced_languages = [
-      \ 'vim',
-      \ 'help'
-      \]
-
+" Auto close brackets
+" inoremap " ""<left>
+" inoremap ' ''<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap { {}<left>
+" inoremap {<CR> {<CR>}<ESC>O
+" inoremap {;<CR> {<CR>};<ESC>O

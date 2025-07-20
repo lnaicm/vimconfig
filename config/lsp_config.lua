@@ -64,7 +64,7 @@ lspconfig.vimls.setup({
 
 -- Snippet to enable the clangd language server:
 lspconfig.clangd.setup({
-  cmd = { "clangd", "--background-index", "--clang-tidy" },
+  cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=newver" },
   filetypes = { "c", "cpp", "objc", "objcpp" },
   root_dir = lspconfig.util.root_pattern(
     '.clangd',
