@@ -31,6 +31,8 @@ vim.cmd [[
 	" Themes
 	Plug 'folke/tokyonight.nvim'
 	Plug 'savq/melange-nvim'
+	Plug 'catppuccin/nvim'
+	Plug 'sainnhe/gruvbox-material'
 
 	call plug#end()
 ]]

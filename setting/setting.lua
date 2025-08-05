@@ -13,7 +13,8 @@ vim.cmd[[
 ]]
 
 -- Highlight cursor line underneath the cursor horizontally.
-vim.opt.cursorline = false
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = 'number'
 
 -- Highlight cursor line underneath the cursor vertically.
 vim.opt.cursorcolumn = false
@@ -82,7 +83,7 @@ vim.opt.listchars = {
 vim.opt.list = false
 
 -- Colorscheme
-vim.cmd.colorscheme("melange")
+vim.cmd.colorscheme("gruvbox-material")
 
 -- Optional: Auto-pairs (commented out, Lua equivalent with nvim-autopairs available)
 -- You can use a plugin like 'windwp/nvim-autopairs' instead
